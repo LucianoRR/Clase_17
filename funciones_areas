@@ -1,0 +1,87 @@
+/*function myFunction(palabra, letra){
+let contador=0
+for(let i=0; i < palabra.length; i++){
+    if(palabra[i] === letra){
+        contador++
+    }
+}
+console.log("La letra "+ letra + " aparece " + contador + " veces")
+}
+myFunction("loool","o")*/
+/*function calcularAreaTriangulo(base,altura){
+    let resultado= (base*altura)/2
+    console.log(resultado)
+}
+calcularAreaTriangulo(6,10)*/
+function imprimirMenu(){
+  let opcion = 0;
+  
+  console.log("Ingrese la figura de la que quiere calcular el area: ");
+  console.log("1. Rectangulo");
+  console.log("2. Triangulo");
+  console.log("3. Circulo");
+  console.log("4. Salir");
+  
+  opcion = parseInt(prompt("Ingrese su opcion: "));
+  
+  while((opcion < 1 || opcion > 4) || (isNaN(opcion))){
+    console.log("Valor no valido! Intente de nuevo");
+    
+    console.log("Ingrese la figura de la que quiere calcular el area: ");
+    console.log("1. Rectangulo");
+    console.log("2. Triangulo");
+    console.log("3. Circulo");
+    console.log("4. Salir");
+  
+    opcion = parseInt(prompt("Ingrese su opcion: "));
+  }
+  return opcion;
+}
+function calcularAreaRectangulo(base,altura){
+    let resultado= (base*altura);
+    return resultado
+}
+
+function calcularAreaTriangulo(base,altura){
+    let resultado= (base*altura)/2
+    return resultado
+}
+
+function calcularAreaCirculo(radio){
+const pi = 3.1416;
+let resultado = pi*radio*radio;
+return resultado
+}
+
+function calculadoraDeAreas(){
+  
+  let opcion = imprimirMenu();
+  
+  while (opcion !== 4){
+    switch (opcion) {
+  case 1:
+    let base= parseFloat(prompt("Ingresar base del rectangulo: "));
+    let altura= parseFloat(prompt("Ingresar altura del rectangulo: "));
+    let area= calcularAreaRectangulo(base,altura);
+    console.log("El area del rectangulo es: "+area);
+    opcion = imprimirMenu();
+    break;
+  case 2:
+    let baseTriang= parseFloat(prompt("Ingresar base del triangulo: "));
+    let alturaTriang= parseFloat(prompt("Ingresar altura del triangulo: "));
+    let areaTriang= calcularAreaTriangulo(baseTriang,alturaTriang);
+    console.log("El area del triangulo es: "+areaTriang);
+    opcion = imprimirMenu();
+    break;
+  case 3:
+    let radioCirculo= parseFloat(prompt("Ingresar radio del circulo: "));
+    let areaCirculo= calcularAreaCirculo(radioCirculo);
+    console.log("El area del circuulo es: "+areaCirculo);
+    opcion = imprimirMenu();
+    break;
+    }
+  }
+  console.log("Adios");
+}
+
+calculadoraDeAreas();
